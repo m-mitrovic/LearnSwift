@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="input-block">
-      <input :type="text" id="myText" :placeholder="placeholder" autocomplete="off" autocorrect="off" spellcheck="off" v-model="text"/>
+      <input :type="text" id="myText" :placeholder="placeholder" autocomplete="off" autocorrect="off" spellcheck="off" v-model="text" v-on:keyup.enter="run()"/>
     <!-- The above code assigns the input text to the text variable, in order to allow comparison to see wether the response is correct  -->
     </div>
     <br>
@@ -47,7 +47,11 @@ export default defineComponent({
     matcher() {
       const matcher = new RegExp(this.match!) // Using RegExp lets me create expressions to see wether the input would be compatible in Swift. Each component sends it's own RegExp
       if (matcher.test(this.text)) {
-        return (matcher.exec(this.text)?.[1] ?? "Nothing to show").replaceAll("\"", " ").replaceAll("'", " ")
+        if (matcher.exec(this.text)?.[1].replaceAll("\"", " ").replaceAll("'", " ") == ">= 18" || matcher.exec(this.text)?.[1].replaceAll("\"", " ").replaceAll("'", " ") == "/ 2" || matcher.exec(this.text)?.[1].replaceAll("\"", " ").replaceAll("'", " ") == ">= 18") {
+          return "Nothing to show"
+        } else {
+          return (matcher.exec(this.text)?.[1] ?? "Nothing to show").replaceAll("\"", " ").replaceAll("'", " ")
+        }
       } else {
         return (matcher.exec(this.text)?.[1] ?? "App Terminated - Error " + Math.round(Math.random() * 1000 + 1000)).replaceAll("\"", " ").replaceAll("'", " ")
       }

@@ -2,10 +2,17 @@
   <Header/>
   <div class="gif-img"></div>
   <div class="contentBody" id="main">
-
+  <!-- CHEAT SHEET: 
+  1. print("User Name")
+  2. Your_BTC_Valuation = 0.00
+  3. let school = "School Name"
+  4. (15 + 45 - 10) * 5 / 2
+  5. func printName() { print("Your Name") }
+  6. if userAge >= 18 && isFriend != false { print("Access Granted") } else { print("Access Denied") } 
+  -->
   <!-- Reusable Vue Components Below -->
   <TextBlock title="What is Swift?">
-    Aspire to build the next AirBnB, Uber, or Instagram? One aspect all of these apps have in common is that their iOS are built with the powerful programming language Swift. Swift is a high level programming language that is developed and maintained by Apple. Swift is primarily used to create apps for devices running iOS, MacOS, WatchOS, and TVOS.
+    Aspire to build the next AirBnB, Uber, or Instagram? One aspect all of these apps have in common is that their iOS counterparts are built with the powerful programming language Swift. Swift is a high level programming language that is developed and maintained by Apple. Swift is primarily used to create apps for devices running iOS, MacOS, WatchOS, and TVOS.
   </TextBlock>
 
   <TextIconBlock title="The Compiler" icon="xcode.png" link="https://developer.apple.com/xcode/">
@@ -26,13 +33,13 @@
   </TextBlock>
 
   <TextBlock title="Print Statements" placeholder="Your code here..." expectedCode="print(&quot;hi'&quot;)" match="^print\(('.+'|&quot;.+&quot;)\);?$" @completed="completeCode('print')">
-    The Xcode console is a helpful tool for development. It is a read-only console that is made for development purposes only. The Xcode console is particulatily useful for debugging errors and printing status messages for the developer. In the console you can print <code>String</code> values, <code>Int</code> values, and even <code>Double</code> values. Here's how you can print any of these values... <HighlightedCodeBlock>print(YOUR_VALUE_HERE)</HighlightedCodeBlock><br><p2>Now it's your turn to print your name.</p2> Follow the syntax above, and remember to use quotation marks when declaring a <code>String</code>
+    The Xcode console is a helpful tool for development. It is a read-only console that is made for development purposes only. The Xcode console is particulatily useful for debugging errors and printing status messages for the developer. In the console you can print <code>String</code> values, <code>Int</code> and <code>Double</code> values, and even <code>Bool</code> values. Here's how you can print any of these values... <HighlightedCodeBlock>print(YOUR_VALUE_HERE)</HighlightedCodeBlock><br><p2>Now it's your turn to print your name.</p2> Follow the syntax above, and remember to use quotation marks when declaring a <code>String</code>
   </TextBlock>
 
-  <TextBlock title="Variables" placeholder="Your code here..." expectedCode="print(&quot;hi'&quot;)" match="Your_BTC_Valuation = \d.+" @completed="completeCode('var')">
+  <TextBlock title="Variables" placeholder="Your code here..." expectedCode="print(&quot;hi'&quot;)" match="^Your_BTC_Valuation = \d.+" @completed="completeCode('var')">
     Variables and constants are like containers holding values. Variables help easily track data within your app. For example, Instagram would use a variable to access your username. To declare a variable begin by typing the word <code>var</code> followed by a space and then the variable name. The variable name is the identifier you would use to access the data within the variable. For example, Instagram would have a variable <code>var username</code> which would equal your username. <br><br>
     After you've named the variable, follow a space, then an equal sign, then another space, and finally insert the value you would like the variable to store. At the end it should look something like this... <HighlightedCodeBlock>var name = "Mihajlo M."</HighlightedCodeBlock>
-    Now, whenever you'd want to display the data "Mihajlo M.", you can access it by using <code>name</code> &nbsp;&nbsp; 
+    Now, whenever you'd want to display the data "Mihajlo M.", you can access it by using <code>name</code> &nbsp;&nbsp; without quotation marks to indicate that it is a variable.
     
     <br><br>Variables aren't exclusive to <code>String</code> values, they also work with all other data types including <code>Int</code> and <code>Double</code> &nbsp;&nbsp; For example, a stock app might list the stock price as a <code>Double</code> variable...
     <HighlightedCodeBlock>var BTC_Price = 49014.695</HighlightedCodeBlock>
@@ -46,13 +53,13 @@
     <HighlightedCodeBlock>var Your_BTC_Valuation = 0.00</HighlightedCodeBlock>
   </TextBlock>
 
-  <TextBlock title="Constants" placeholder="Your code here..." expectedCode="print(&quot;hi'&quot;)" match="let school = (&quot;.+&quot;|'.+');?" @completed="completeCode('const')">
+  <TextBlock title="Constants" placeholder="Your code here..." expectedCode="print(&quot;hi'&quot;)" match="^let school = (&quot;.+&quot;|'.+');?" @completed="completeCode('const')">
     Constants on the other hand are just like variables where you can assign them values, but they the value could never be changed. The only difference when declaring a constant is that instead of using the word <code>var</code> we use <code>let</code> &nbsp;&nbsp; When you put it all together, it should look something like... <HighlightedCodeBlock>let fullName = "Mihajlo Mitrovic"</HighlightedCodeBlock>
     <br>
     <p2>Now try it yourself,</p2> make a <code>let</code> variable named <code>school</code> and make it equal the <code>String</code> value of the school you are from.
   </TextBlock>
   
-  <TextBlock title="Math Operations" placeholder="Your code here..." expectedCode="print(&quot;hi'&quot;)" match="\(?\(15 \+ 45 \- 10\) \* 5\)? (\* 0.5|\/ 2)" @completed="completeCode('math')">
+  <TextBlock title="Math Operations" placeholder="Your code here..." expectedCode="print(&quot;hi'&quot;)" match="^\(?\(15 \+ 45 \- 10\) \* 5\)? (\* 0.5|\/ 2)" @completed="completeCode('math')">
     Math can be done very efficiently and quickly in Swift. We'll cover some of the most basic math operations such as addition, subtration, multiplication, and division. 
     <br><br>One of the most common operator you'd use is addition. Additon could easily be done by placing a <code>+</code> between numbers you'd like to add. For example...
     <HighlightedCodeBlock>let first = 72.33<br>let second = 123.31<br><br>print(first + second) /* Returns 195.64 */</HighlightedCodeBlock>
@@ -67,7 +74,7 @@
     <br><p2>Try it yourself.</p2> Add <code>15</code> and <code>45</code> then subtract <code>10</code> all in brackets, then multiply them by <code>5</code>, and finally split the number in half.
   </TextBlock>
 
-  <TextBlock title="Functions" placeholder="Your function here..." expectedCode="print(&quot;hi'&quot;)" match="func printName\(\) \{ print\((&quot;.+&quot;|'.+')\) \}" @completed="completeCode('func')">
+  <TextBlock title="Functions" placeholder="Your function here..." expectedCode="print(&quot;hi'&quot;)" match="^func printName\(\) \{ print\((&quot;.+&quot;|'.+')\) \}" @completed="completeCode('func')">
     Functions are a key part to reusing code. Instead of copy/pasting the same tasks along your code, you can declare functions that will perform the task within them whenever they are called.
     <HighlightedCodeBlock>func functionName() {<br> &nbsp;&nbsp; /* Function Content */<br>}</HighlightedCodeBlock>
       As you see above, to declare a function you start with the <code>func</code> keyword, followed by the function name, followed by <code>()</code>, and then the content within the function is surrounded by <code>{ }</code> &nbsp;&nbsp; The function can perform any operations you wish, such as <HighlightedCodeBlock>
@@ -78,7 +85,7 @@
       <br><p2>Give it a go!</p2> Declare a single line function named <code>printName</code> that prints your name.
   </TextBlock>
 
-  <TextBlock title="If/Else Statements" placeholder="Your code here..." expectedCode="print(&quot;hi'&quot;)" match="if userAge (\>\= 18|\> 17) \&\& isFriend (\=\= true|\!\= false) { print\(\&quot;Access Granted\&quot;\) } else { print\(\&quot;Access Denied\&quot;\) }" @completed="completeCode('ifelse')">
+  <TextBlock title="If/Else Statements" placeholder="Your code here..." expectedCode="print(&quot;hi'&quot;)" match="^if userAge (\>\= 18|\> 17) \&\& isFriend (\=\= true|\!\= false) { print\(\&quot;Access Granted\&quot;\) } else { print\(\&quot;Access Denied\&quot;\) }" @completed="completeCode('ifelse')">
     <code>if/else</code> statements let us perform certain tasks depending on the condition of variables. For example, Instagram would use an <code>if/else</code> statement to allow viewing of your photos if a user is on your friends list, and deny viewing of your photos if the user is not on your friends list. Here's how you can declare an <code>if/else</code> statement...
     <HighlightedCodeBlock>let number = 10<br><br>if number == 10 {<br> &nbsp;&nbsp; print("Number is 10") <br>} else { <br> &nbsp;&nbsp; print("Number is not 10") <br>}</HighlightedCodeBlock>
     As you may tell, the syntax for an <code>if/else</code> statement starts with the keyword <code>if</code> then the 2 values you'd like to compare with an operator between them, then <code>{ }</code>, then finally instert <code>else { }</code> &nbsp;&nbsp; Just like the function, anything you place within the <code>{ }</code> will be executed accordingly.
