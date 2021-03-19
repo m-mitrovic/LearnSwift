@@ -1,4 +1,4 @@
-[![LearnSwift] (https://i.imgur.com/Zl0oOug.png)](https://ics4u1-a2687.web.app)
+[![LearnSwift](https://i.imgur.com/Zl0oOug.png)](https://ics4u1-a2687.web.app)
 
 # Learn Swift
 Learn Swift is an interactive & mobile friendly website which teaches the fundamentals of the programming language Swift. Enjoy an easy-to-follow walkthrough of the various aspects of Swift like data types, variables, functions, and loops. Test your new knowledge immediately with interactive consoles within the website. By the end, you'll be one step closer to making the next Instagram or Uber and have a shiny certificate!
