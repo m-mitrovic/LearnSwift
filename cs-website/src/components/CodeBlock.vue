@@ -46,11 +46,15 @@ export default defineComponent({
     },
     matcher() {
       const matcher = new RegExp(this.match!) // Using RegExp lets me create expressions to see wether the input would be compatible in Swift. Each component sends it's own RegExp
+      const output = matcher.exec(this.text)?.[1]
       if (matcher.test(this.text)) {
-        if (matcher.exec(this.text)?.[1].replaceAll("\"", " ").replaceAll("'", " ") == ">= 18" || matcher.exec(this.text)?.[1].replaceAll("\"", " ").replaceAll("'", " ") == "/ 2" || matcher.exec(this.text)?.[1].replaceAll("\"", " ").replaceAll("'", " ") == ">= 18") {
+        if (this.text.includes('Your_BTC_Valuation')) { // Custom message for 'Variables' test
+          const btcValue = new RegExp("Your_BTC_Valuation = (.+)")
+          return "Really, you think Bitcoin is worth $" + btcValue.exec(this.text)?.[1] + "!?"
+        } else if (output?.replaceAll("\"", " ").replaceAll("'", " ") == ">= 18" || output?.replaceAll("\"", " ").replaceAll("'", " ") == "/ 2" || output?.replaceAll("\"", " ").replaceAll("'", " ") == ">= 18") {
           return "Nothing to show"
         } else {
-          return (matcher.exec(this.text)?.[1] ?? "Nothing to show").replaceAll("\"", " ").replaceAll("'", " ")
+          return (output?.replaceAll("\"", " ").replaceAll("'", " ") ?? "Nothing to show")
         }
       } else {
         return (matcher.exec(this.text)?.[1] ?? "App Terminated - Error " + Math.round(Math.random() * 1000 + 1000)).replaceAll("\"", " ").replaceAll("'", " ")
